@@ -1,32 +1,32 @@
-#pragma once
+п»ї#pragma once
 class Euro
 {
-	//Целлы
+	//Р¦РµР»Р»С‹
 	int whole;
-	//Дробные
+	//Р”СЂРѕР±РЅС‹Рµ
 	int penny;
 
 public:
 
-	//конструктор класса
+	//РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР°
 	Euro();
 
 #pragma region Setters
 
-	//сеттер для целого
+	//СЃРµС‚С‚РµСЂ РґР»СЏ С†РµР»РѕРіРѕ
 	void setWhole( int whole );
 
-	//сеттер для дробной(копейки)
+	//СЃРµС‚С‚РµСЂ РґР»СЏ РґСЂРѕР±РЅРѕР№(РєРѕРїРµР№РєРё)
 	void setPenny( int penny );
 
 #pragma endregion
 
 #pragma region Getters
 
-	//геттер для целого
+	//РіРµС‚С‚РµСЂ РґР»СЏ С†РµР»РѕРіРѕ
 	int getWhole();
 
-	//геттер для дробного(копейки)
+	//РіРµС‚С‚РµСЂ РґР»СЏ РґСЂРѕР±РЅРѕРіРѕ(РєРѕРїРµР№РєРё)
 	int getPenny();
 
 #pragma endregion

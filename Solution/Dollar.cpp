@@ -8,23 +8,18 @@ Dollar::Dollar()
 }
 
 //метод для ввода целой части
-void Dollar::setWhole( int whole )
+void Dollar::setWhole( double whole )
 {
 	this->whole = whole;
 }
 
 //метод для ввода дробной части
-void Dollar::setPenny( int penny )
+void Dollar::setPenny( double penny )
 {
-	if( penny > 100 )
+	if( penny >= 100 )
 	{
-		std::cout << "Error. Max value penny = 99\n";
-		std::cout << " Enter the permitted value\n";
-
-		int buffer;
-
-		std::cin >> buffer;
-		setPenny( buffer );
+		whole++;
+		setPenny( penny - 100 );
 	}
 	else
 	{
@@ -33,13 +28,13 @@ void Dollar::setPenny( int penny )
 }
 
 //метод для получения целой части валюты
-int Dollar::getWhole()
+double Dollar::getWhole()
 {
 	return whole;
 }
 
 //метод для получения дробной части валюты
-int Dollar::getPenny()
+double Dollar::getPenny()
 {
 	return penny;
 }

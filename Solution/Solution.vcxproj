@@ -144,11 +144,13 @@
     <ClCompile Include="Dollar.cpp" />
     <ClCompile Include="Euro.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Money.cpp" />
     <ClCompile Include="Ruble.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Dollar.h" />
     <ClInclude Include="Euro.h" />
+    <ClInclude Include="Money.h" />
     <ClInclude Include="Ruble.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

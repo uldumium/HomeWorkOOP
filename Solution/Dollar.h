@@ -1,10 +1,12 @@
 ﻿#pragma once
+
+//Доллар
 class Dollar
 {
 	//Целлы
-	int whole;
+	double whole;
 	//Дробные
-	int penny;
+	double penny;
 
 public:
 
@@ -14,20 +16,20 @@ public:
 #pragma region Setters
 
 	//сеттер для целого
-	void setWhole( int whole );
+	void setWhole( double whole );
 
 	//сеттер для дробной(копейки)
-	void setPenny( int penny );
+	void setPenny( double penny );
 
 #pragma endregion
 
 #pragma region Getters
 
 	//геттер для целого
-	int getWhole();
+	double getWhole();
 
 	//геттер для дробного(копейки)
-	int getPenny();
+	double getPenny();
 
 #pragma endregion
 };

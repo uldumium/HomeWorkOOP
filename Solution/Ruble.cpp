@@ -9,23 +9,18 @@ Ruble::Ruble()
 }
 
 //метод для ввода целой части
-void Ruble::setWhole( int whole )
+void Ruble::setWhole( double whole )
 {
 	this->whole = whole;
 }
 
 //метод для ввода дробной части
-void Ruble::setPenny( int penny )
+void Ruble::setPenny( double penny )
 {
-	if( penny > 100 )
+	if( penny >= 100 )
 	{
-		std::cout << "Error. Max value penny = 99\n";
-		std::cout << " Enter the permitted value\n";
-
-		int buffer;
-
-		std::cin >> buffer;
-		setPenny( buffer );
+		whole++;
+		setPenny( penny - 100 );
 	}
 	else
 	{
@@ -34,13 +29,13 @@ void Ruble::setPenny( int penny )
 }
 
 //метод для получения целой части валюты
-int Ruble::getWhole()
+double Ruble::getWhole()
 {
 	return whole;
 }
 
 //метод для получения дробной части валюты
-int Ruble::getPenny()
+double Ruble::getPenny()
 {
 	return penny;
 }

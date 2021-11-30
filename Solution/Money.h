@@ -28,20 +28,26 @@ public:
 	}
 
 #pragma region METHODS
-	// Перевод валюты в осмновную, рубль
-	static Money exchange( Money one );
+	// Перевод валюты в основную, рубль
+	static Money exchangeToRuble( Money one );
+
+	// Перевод валюты в доллар
+	static Money exchangeToDollar( Money one );
+
+	//Перевод валюты в евро
+	static Money exchangeToEuro( Money one );
 
 	// Сложение
-	void add( Money one, Money two );
+	static void add( Money one, Money two );
 
 	// Вычитание
-	void sub( Money one, Money two );
+	static void sub( Money one, Money two );
 
 	// Деление
-	void div( Money one, Money two );
+	static void div( Money one, Money two );
 
 	// Умножение
-	void mult( Money one, Money two );
+	static void mult( Money one, Money two );
 
 #pragma endregion
 

@@ -2,7 +2,7 @@
 
 #pragma region METHODS
 
-Money Money::exchange( Money one )
+Money Money::exchangeToRuble( Money one )
 {
     Money exchangeBuffer;
 
@@ -31,7 +31,65 @@ Money Money::exchange( Money one )
     return exchangeBuffer;
 }
 
-void Money::add( Money one, Money two )
+Money Money::exchangeToDollar(Money one)
+{
+    Money exchangeBuffer;
+
+    if (one.ruble.getWhole() > 0)
+    {
+        // Рубль к доллару
+        double exchangeValue = 0.013;
+
+        exchangeBuffer.dollar.setWhole(one.ruble.getWhole() * exchangeValue);
+        exchangeBuffer.dollar.setPenny(one.ruble.getPenny() * exchangeValue);
+    }
+    else if (one.euro.getWhole() > 0)
+    {
+        // Евро в доллар
+        double exchangeValue = 1.14;
+
+        exchangeBuffer.dollar.setWhole(one.euro.getWhole() * exchangeValue);
+        exchangeBuffer.dollar.setPenny(one.euro.getPenny() * exchangeValue);
+    }
+    else if (one.dollar.getWhole() > 0)
+    {
+        exchangeBuffer.dollar.setWhole(one.dollar.getWhole());
+        exchangeBuffer.dollar.setPenny(one.dollar.getPenny());
+    }
+
+    return exchangeBuffer;
+}
+
+Money Money::exchangeToEuro(Money one)
+{
+    Money exchangeBuffer;
+
+    if(one.ruble.getWhole() > 0 )
+    {
+        //Рубль в евро
+        double exchangeValue = 0.012;
+
+        exchangeBuffer.euro.setWhole(one.ruble.getWhole() * exchangeValue);
+        exchangeBuffer.euro.setPenny(one.ruble.getPenny() * exchangeValue);
+    }
+    else if (one.dollar.getWhole() > 0)
+    {
+        //Доллар в евро
+        double exchangeValue = 0.88;
+
+        exchangeBuffer.euro.setWhole(one.dollar.getWhole() * exchangeValue);
+        exchangeBuffer.euro.setPenny(one.dollar.getPenny() * exchangeValue);
+    }
+    else if (one.euro.getWhole() > 0)
+    {
+        exchangeBuffer.euro.setWhole(one.euro.getWhole());
+        exchangeBuffer.euro.setPenny(one.euro.getPenny());
+    }
+
+    return exchangeBuffer;
+}
+
+void Money::add(Money one, Money two)
 {
     // Монета в рублях, первой монеты (ой)
     Money exchangeRubleOne;
@@ -39,10 +97,27 @@ void Money::add( Money one, Money two )
     // Монета в рублях, второй монеты (ой)
     Money exchangeRubleTwo;
 
-    if( one.dollar.getWhole() > 0 )
-    {
-        exchangeRubleOne = Money::exchange( one );
-    }
+    //Монета результата
+    Money bufferResult;
+
+    //Конвертируем первую и вторую монету в основную
+    exchangeRubleOne = Money::exchangeToRuble(one);
+    exchangeRubleTwo = Money::exchangeToRuble(two);
+
+    // Инициализаруем результат сложения двух монет
+    bufferResult.ruble.setWhole(exchangeRubleOne.ruble.getWhole() + exchangeRubleTwo.ruble.getWhole());
+    bufferResult.ruble.setPenny(exchangeRubleOne.ruble.getPenny() + exchangeRubleTwo.ruble.getPenny());
+
+    // Выводим результат сложения
+    std::cout << " Сумма в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << bufferResult.ruble.getPenny() << std::endl;
+
+    // Переводим в доллары c выводом результата
+    bufferResult = Money::exchangeToDollar(bufferResult);
+    std::cout << " Сумма в долларах: " << bufferResult.dollar.getWhole() << " Копеек: " << bufferResult.dollar.getPenny() << std::endl;
+
+    // Перевод в евро с выводои результата
+    bufferResult = Money::exchangeToEuro(bufferResult);
+    std::cout << " Сумма в евро: " << bufferResult.euro.getWhole() << " Копеек: " << bufferResult.euro.getPenny() << std::endl;
 }
 
 #pragma endregion

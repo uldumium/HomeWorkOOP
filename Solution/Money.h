@@ -3,6 +3,8 @@
 #include "Euro.h"
 #include "Ruble.h"
 #include <iostream>
+#include <iomanip>
+#include <conio.h>
 
 //Класс волюты
 class Money
@@ -38,30 +40,33 @@ public:
 	static Money exchangeToEuro( Money one );
 
 	// Сложение
-	static void add( Money one, Money two );
+	static void add( Money one , Money two );
 
 	// Вычитание
-	static void sub( Money one, Money two );
+	static void sub( Money one , Money two );
 
 	// Деление
-	static void div( Money one, Money two );
+	static void div( Money one , Money two );
 
 	// Умножение
-	static void mult( Money one, Money two );
+	static void mult( Money one , Money two );
+
+	// Сравнение
+	static void comparison( Money one , Money two );
 
 #pragma endregion
 
 #pragma region SETTERS
 
 	// Задаем значение доллару
-	void setDollar( double whole, double penny);
+	void setDollar( double whole , double penny );
 
 
 	// Задаем значение евро
-	void setEuro( double whole, double penny );
+	void setEuro( double whole , double penny );
 
 	// Задаем значение рублю
-	void setRuble( double whole, double penny );
+	void setRuble( double whole , double penny );
 
 
 #pragma endregion

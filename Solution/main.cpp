@@ -1,6 +1,6 @@
-﻿#include <iostream>
-#include <iomanip>
+﻿#include "App.h"
 #include "Money.h"
+
 
 //-----------------------------------------------------------//
 ///															///
@@ -14,18 +14,11 @@
 
 int main()
 {
-	setlocale(0, "rus");
-
-	Money dol, eu;
+	setlocale( 0 , "rus" );
+	Money one , two;
 	
-	dol.setDollar( 20, 120 );
-	eu.setEuro( 2, 130 );
+	App::setTheCurrency( one );
+	App::setTheCurrency( two );
 
-	Money ruble = Money::exchangeToRuble( dol );
-	Money ruble2 = Money::exchangeToRuble( eu );
-
-	std::cout << std::fixed << std::setprecision( 0 ) << ruble.getRubleWhole() << " " << ruble.getRublePenny() << std::endl;
-	std::cout << std::fixed << std::setprecision(0) << ruble2.getRubleWhole() << " " << ruble2.getRublePenny() << std::endl;
-
-	Money::add(dol, eu);
+	Money::add( one , two );
 }

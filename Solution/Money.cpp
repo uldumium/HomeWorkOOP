@@ -27,7 +27,7 @@ Money Money::exchangeToRuble( Money one )
 		exchangeBuffer.ruble.setWhole( one.ruble.getWhole() );
 		exchangeBuffer.ruble.setPenny( one.ruble.getPenny() );
 	}
-	
+
 	return exchangeBuffer;
 }
 
@@ -110,7 +110,7 @@ void Money::add( Money one , Money two )
 	bufferResult.ruble.setPenny( exchangeRubleOne.ruble.getPenny() + exchangeRubleTwo.ruble.getPenny() );
 
 	// Выводим результат сложения
-	std::cout << " Результат сложения в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << std::setfill( '0' ) << std::setw( 2 ) << bufferResult.ruble.getPenny() << std::endl;
+	std::cout << std::fixed << std::setprecision( 0 ) << " Результат сложения в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << std::setfill( '0' ) << std::setw( 2 ) << bufferResult.ruble.getPenny() << std::endl;
 
 	// Переводим в доллары c выводом результата
 	bufferResult = Money::exchangeToDollar( bufferResult );
@@ -144,7 +144,7 @@ void Money::sub( Money one , Money two )
 	bufferResult.ruble.setPenny( exchangeRubleOne.ruble.getPenny() - exchangeRubleTwo.ruble.getPenny() );
 
 	// Выводим результат сложения
-	std::cout << " Результат разности в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << std::setfill( '0' ) << std::setw( 2 ) << bufferResult.ruble.getPenny() << std::endl;
+	std::cout << std::fixed << std::setprecision( 0 ) << " Результат разности в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << std::setfill( '0' ) << std::setw( 2 ) << bufferResult.ruble.getPenny() << std::endl;
 
 	// Переводим в доллары c выводом результата
 	bufferResult = Money::exchangeToDollar( bufferResult );
@@ -178,7 +178,7 @@ void Money::div( Money one , Money two )
 	bufferResult.ruble.setPenny( exchangeRubleOne.ruble.getPenny() / exchangeRubleTwo.ruble.getPenny() );
 
 	// Выводим результат сложения
-	std::cout << " Результат частного в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << std::setfill( '0' ) << std::setw( 2 ) << bufferResult.ruble.getPenny() << std::endl;
+	std::cout << std::fixed << std::setprecision( 0 ) << " Результат частного в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << std::setfill( '0' ) << std::setw( 2 ) << bufferResult.ruble.getPenny() << std::endl;
 
 	// Переводим в доллары c выводом результата
 	bufferResult = Money::exchangeToDollar( bufferResult );
@@ -212,7 +212,7 @@ void Money::mult( Money one , Money two )
 	bufferResult.ruble.setPenny( exchangeRubleOne.ruble.getPenny() * exchangeRubleTwo.ruble.getPenny() );
 
 	// Выводим результат сложения
-	std::cout << " Результат произведения в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << std::setfill( '0' ) << std::setw( 2 ) << bufferResult.ruble.getPenny() << std::endl;
+	std::cout << std::fixed << std::setprecision( 0 ) << " Результат произведения в рублях: " << bufferResult.ruble.getWhole() << " Копеек: " << std::setfill( '0' ) << std::setw( 2 ) << bufferResult.ruble.getPenny() << std::endl;
 
 	// Переводим в доллары c выводом результата
 	bufferResult = Money::exchangeToDollar( bufferResult );
@@ -241,15 +241,15 @@ void Money::comparison( Money one , Money two )
 	//Сравнение целых чисел валют, так как копейки роли не сыграют.
 	if(exchangeRubleOne.getRubleWhole() > exchangeRubleTwo.getRubleWhole())
 	{
-		std::cout << " Первая валюта больше второй\n";
+		std::cout << " \n\nПервая валюта больше второй\n";
 	}
 	else if(exchangeRubleTwo.getRubleWhole() > exchangeRubleOne.getRubleWhole())
 	{
-		std::cout << " Вторая валюта больше первой\n";
+		std::cout << " \n\nВторая валюта больше первой\n";
 	}
 	else if(exchangeRubleOne.getRubleWhole() == exchangeRubleTwo.getRubleWhole())
 	{
-		std::cout << " Валюты равны\n";
+		std::cout << " \n\nВалюты равны\n";
 	}
 
 }

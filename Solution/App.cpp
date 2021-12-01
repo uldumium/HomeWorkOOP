@@ -14,9 +14,9 @@ double App::setRandomNum()
 void App::setTheCurrency(Money &one)
 {
 
-	std::cout << " Выберите валюту для первой монеты:\n 1: Рубль\n 2: Доллар\n 3: Евро\n";
+	std::cout << " Выберите валюту для монеты:\n 1: Рубль\n 2: Доллар\n 3: Евро\n";
 
-	switch(_getche()-48)
+	switch(_getch()-48)
 	{
 		case ONE_KEY:
 			one.setRuble( App::setRandomNum() , App::setRandomNum() );

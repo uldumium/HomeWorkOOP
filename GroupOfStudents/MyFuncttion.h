@@ -3,6 +3,7 @@
 #include <ctime>
 #include <fstream>
 #include <iomanip>
+#include <conio.h>
 
 // Возращает число в веденном диапазоне
 int getRandomInteger( int min , int max );

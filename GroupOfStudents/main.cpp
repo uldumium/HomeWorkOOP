@@ -8,12 +8,13 @@ int main()
     //Русский язык
     setlocale( 0 , "rus" );
 
-
     Group p;
     p.fillStudentList();
 
 
-    Group::studentsGradesBySubject(p);
+    Group::averageGradesInSubjects(p);
     std::cout << std::endl;
     Group::averageScoreOfStudents( p );
+    std::cout << std::endl;
+    Group::studentsGradesBySubject( p );
 }

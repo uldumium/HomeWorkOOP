@@ -17,11 +17,14 @@ public:
 	// Конструктор по умолчанию
 	Group();
 
-	// Статический метод который печатает таблицу студентов по предметах и их оценки
+	// Средние оценки по предметам
 	static void studentsGradesBySubject( Group p );
 
 	// Выводи на экран средний балл студентов
 	static void averageScoreOfStudents( Group p );
+
+	// Статический метод который печатает таблицу студентов по предметах и их оценки
+	static void averageGradesInSubjects( Group p );
 
 
 #pragma region SETTERS
@@ -47,9 +50,6 @@ private:
 
 	// Возращает предмет
 	std::string printItems( int a );
-
-	// Вывод в консоль оценки студента
-	void printMarksStudentsGroup( int a );
 
 #pragma region GETTERS
 

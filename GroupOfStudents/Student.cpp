@@ -74,3 +74,18 @@ void Student::printStudentMarks(int a)
             std::cout << Student::marks[ a ][ j ] << " ";
         }
 }
+
+void Student::printStudentMarks( Student a )
+{
+    for(int i = 0; i < 7; i++)
+    {
+        for(int j = 0; j < MAX_MARKS; j++)
+        {
+            std::cout << a.getGrade( i , j ) << " ";
+        }
+        //std::cout << "\t";
+        std::cout << "\t";
+    }
+
+    std::cout << std::endl;
+}

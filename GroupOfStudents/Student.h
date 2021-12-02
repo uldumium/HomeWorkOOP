@@ -44,6 +44,8 @@ public:
 	// Вывод в консоль оценок студента
 	void printStudentMarks(int a);
 
+	static void printStudentMarks(Student a);
+
 #pragma region
 private:
 	// Имя студента

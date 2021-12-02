@@ -30,6 +30,60 @@ Group::Group()
 
 void Group::studentsGradesBySubject(Group p)
 {
+	std::cout << " \t\t\t\tВывод студентов со средней оценкой по предметам: \n\n";
+	int summa = 0;
+	std::cout << "|" << std::setw( 25 ) << std::left << "Имя и фамилия студента" << "|";
+	// Цикл для вывода названия предмета
+	for(int i = 0; i < MAX_SIZE_VALUE_ITEM; i++)
+	{
+		std::cout << std::setw( 11 ) << std::left << p.printItems( i ) << "|";
+	}
+	std::cout << std::endl;
+
+	// Цикл по выводу студента
+	for(int i = 0; i < MAX_SIZE_GROUP_STUDENTS; i++)
+	{
+		std::cout << "|" << std::setw( 10 ) << std::left << p.getSurnameStudentGroup( i ) << " ";
+		std::cout << std::setw( 14 ) << std::left << p.getNameStudentGroup( i ) << "|";
+
+		for(int j = 0; j < MAX_COUNT_ITEMS; j++)
+		{
+			summa = 0;
+			for(int t = 0; t < MAX_MARKS; t++)
+			{
+				summa += p.studentList[ i ].getGrade(j,t);
+			}
+			std::cout<<std::setw(11-4) <<"" <<std::setw(11-7) << summa / MAX_MARKS << "|";
+		}
+
+		std::cout << std::endl;
+	}
+}
+
+void Group::averageScoreOfStudents( Group p )
+{
+	double summa = 0;
+	std::cout << " \t\tВывод имени студента с общим среднем баллов: \n\n";
+	std::cout <<"\t\t\tИмя и фамилия студента: \n";
+	for(int t = 0; t < MAX_SIZE_GROUP_STUDENTS; t++)
+	{
+		summa = 0;
+		std::cout <<"\t\t" << p.studentList[t].getName() << " " << p.studentList[t].getSurName();
+		for(int i = 0; i < MAX_COUNT_ITEMS; i++)
+		{
+			for(int j = 0; j < MAX_MARKS; j++)
+			{
+				summa += p.studentList[t].getGrade( i , j );
+			}
+		}
+		std::cout << " - средняя оценка: " <<std::fixed<<std::setprecision(2)<< summa / ( MAX_COUNT_ITEMS * MAX_MARKS )<< std::endl;
+	}
+	
+}
+
+void Group::averageGradesInSubjects( Group p )
+{
+	std::cout << " \t\t\t\tВывод студентов c оценками по предметам: \n\n";
 	std::cout << "|" << std::setw( 25 ) << std::left << "Имя и фамилия студента" << "|";
 	// Цикл для вывода названия предмета
 	for(int i = 0; i < MAX_SIZE_VALUE_ITEM; i++)
@@ -47,7 +101,10 @@ void Group::studentsGradesBySubject(Group p)
 		for(int j = 0; j < MAX_COUNT_ITEMS; j++)
 		{
 			std::cout << " ";
-			p.printMarksStudentsGroup( i );
+			for(int t = 0; t < MAX_MARKS; t++)
+			{
+				std::cout << p.studentList[ i ].getGrade( j , t ) << " ";
+			}
 			std::cout << "|";
 		}
 
@@ -55,35 +112,9 @@ void Group::studentsGradesBySubject(Group p)
 	}
 }
 
-void Group::averageScoreOfStudents( Group p )
-{
-	double summa = 0;
-
-	std::cout <<"Имя и фамилия студента: \n";
-	for(int t = 0; t < MAX_SIZE_GROUP_STUDENTS; t++)
-	{
-		summa = 0;
-		std::cout << p.studentList[ t ].getName() << " " << p.studentList[ t ].getSurName();
-		for(int i = 0; i < MAX_COUNT_ITEMS; i++)
-		{
-			for(int j = 0; j < MAX_MARKS; j++)
-			{
-				summa += p.studentList[t].getGrade( i , j );
-			}
-		}
-		std::cout << " - средняя оценка: " << summa / ( MAX_COUNT_ITEMS * MAX_MARKS ) << std::endl;
-	}
-	
-}
-
 std::string Group::printItems( int a )
 {
 	return Group::itemList[ a ].getNameItem();
-}
-
-void Group::printMarksStudentsGroup( int a )
-{
-	Group::studentList->printStudentMarks(a);
 }
 
 void Group::setNameGroup( std::string name )

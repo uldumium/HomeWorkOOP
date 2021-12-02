@@ -55,6 +55,11 @@ std::string Student::getSurName()
     return surName;
 }
 
+int Student::getGrade( int a , int b)
+{
+    return Student::marks[ a ][ b ];
+}
+
 void Student::printStudent()
 {
     std::cout << Student::name << " " << Student::surName;

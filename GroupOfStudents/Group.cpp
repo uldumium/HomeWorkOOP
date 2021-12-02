@@ -53,6 +53,27 @@ void Group::studentsGradesBySubject(Group p)
 	}
 }
 
+void Group::averageScoreOfStudents( Group p )
+{
+	double summa = 0;
+
+	std::cout <<"Имя и фамилия студента: \n";
+	for(int t = 0; t < MAX_SIZE_GROUP_STUDENTS; t++)
+	{
+		summa = 0;
+		std::cout << p.studentList[ t ].getName() << " " << p.studentList[ t ].getSurName();
+		for(int i = 0; i < MAX_COUNT_ITEMS; i++)
+		{
+			for(int j = 0; j < MAX_MARKS; j++)
+			{
+				summa += p.studentList[t].getGrade( i , j );
+			}
+		}
+		std::cout << " - средняя оценка: " << summa / ( MAX_COUNT_ITEMS * MAX_MARKS ) << std::endl;
+	}
+	
+}
+
 std::string Group::printItems( int a )
 {
 	return Group::itemList[ a ].getNameItem();

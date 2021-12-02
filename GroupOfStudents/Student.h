@@ -30,6 +30,10 @@ public:
 	// Возращает Фамилию
 	std::string getSurName();
 
+	// Возращает определенную оценку студента
+	// где [a] - номер студента [b] - номер его оценки в массиве
+	int getGrade( int a , int b );
+
 #pragma endregion
 
 #pragma region internalFunctionality

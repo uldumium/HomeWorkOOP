@@ -5,7 +5,7 @@
 class Student
 {	
 public:
-
+	// Конструктор по умолчанию 
 	Student();
 #pragma region SETTERS
 

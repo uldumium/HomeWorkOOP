@@ -24,12 +24,18 @@
     <ClCompile Include="MyFuncttion.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="Item.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Student.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="MyFuncttion.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

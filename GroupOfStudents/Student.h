@@ -1,7 +1,8 @@
 #pragma once
 #include "MyFuncttion.h"
 
-#define MAX_MARKS 3
+#define MAX_MARKS 5
+
 class Student
 {	
 public:
@@ -35,7 +36,7 @@ public:
 	// Вывод в консоль студента
 	void printStudent();
 
-	// Выводв консоль оценок студента
+	// Вывод в консоль оценок студента
 	void printStudentMarks();
 
 #pragma region

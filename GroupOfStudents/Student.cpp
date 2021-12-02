@@ -24,7 +24,7 @@ void Student::setMarks()
 {
     for(int i = 0; i < MAX_MARKS; i++)
     {
-        Student::marks[ i ] = randomInteger( 2 , 5 );
+        Student::marks[ i ] = getRandomInteger( 2 , 5 );
     }
 }
 

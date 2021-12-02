@@ -1,14 +1,15 @@
 #include "MyFuncttion.h"
+#include "Group.h"
 
-int randomInteger( int min , int max )
+int getRandomInteger( int min , int max )
 {
 	return min + rand() % ( max - min);
 }
 
-std::string randomLine( std::string file )
+std::string getRandomLine( std::string file )
 {
 	// рандомное число
-	int bufferValue = randomInteger( 1 , getValueLineFile(file));
+	int bufferValue = getRandomInteger( 1 , getValueLineFile(file));
 
 	std::ifstream in;
 	in.open( file);

@@ -3,7 +3,7 @@
 
 int getRandomInteger( int min , int max )
 {
-	return min + rand() % ( max - min);
+	return min + rand() % ( max - min + 1);
 }
 
 std::string getRandomLine( std::string file )

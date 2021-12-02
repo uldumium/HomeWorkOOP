@@ -4,9 +4,12 @@ Student::Student()
 {
     name = "N/O";
     surName = "N/O";
-    for(int i = 0; i < MAX_MARKS; i++)
+    for(int i = 0; i < MAX_COUNT_ITEMS; i++)
     {
-        marks[ i ] = 0;
+        for(int j = 0; j < MAX_MARKS; j++)
+        {
+            marks[ i ][ j ] = 0;
+        }
     }
 }
 
@@ -22,17 +25,24 @@ void Student::setSurName( std::string surName )
 
 void Student::setMarks()
 {
-    for(int i = 0; i < MAX_MARKS; i++)
+    for(int i = 0; i < MAX_COUNT_ITEMS; i++)
     {
-        Student::marks[ i ] = getRandomInteger( 2 , 5 );
+        for(int j = 0; j < MAX_MARKS; j++)
+        {
+            Student::marks[ i ][ j ] = getRandomInteger( 2 , 5 );
+        }
     }
 }
 
-void Student::setMarks( int a , int b , int c )
+void Student::setMarks(int a)
 {
-    Student::marks[ 0 ] = a;
-    Student::marks[ 1 ] = b;
-    Student::marks[ 2 ] = c;
+    for(int i = 0; i < MAX_COUNT_ITEMS; i++)
+    {
+        for(int j = 0; j < MAX_MARKS; j++)
+        {
+            Student::marks[ i ][ j ] = a;
+        }
+    }
 }
 
 std::string Student::getName()
@@ -48,21 +58,14 @@ std::string Student::getSurName()
 void Student::printStudent()
 {
     std::cout << Student::name << " " << Student::surName;
-    Student::printStudentMarks();
+    //Student::printStudentMarks();
     std::cout << std::endl;
 }
 
-void Student::printStudentMarks()
+void Student::printStudentMarks(int a)
 {
-    // ”знаем размер массива
-    int size = sizeof( Student::marks ) / sizeof( Student::marks[ 0 ] );
-
-    std::cout << "\nќценки - [ ";
-
-    for(int i = 0; i < size; i++)
-    {
-        std::cout << Student::marks[ i ] << " ";
-    }
-
-    std::cout << "]" << std::endl;
+        for(int j = 0; j < MAX_MARKS; j++)
+        {
+            std::cout << Student::marks[ a ][ j ] << " ";
+        }
 }

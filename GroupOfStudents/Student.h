@@ -2,6 +2,7 @@
 #include "MyFuncttion.h"
 
 #define MAX_MARKS 5
+#define MAX_COUNT_ITEMS 7
 
 class Student
 {	
@@ -16,9 +17,9 @@ public:
 	// Инициализируем Фамилию
 	void setSurName( std::string surName );
 
-	// Если вызываем метод, то инициализация массива происходит псевдорандомом
+	// Инициализация массива происходит псевдорандомом в заданом диапазоне от 2 до 5
 	void setMarks();
-	void setMarks( int a , int b , int c );
+	void setMarks(int a);
 
 #pragma endregion
 #pragma region GETTERS
@@ -37,7 +38,7 @@ public:
 	void printStudent();
 
 	// Вывод в консоль оценок студента
-	void printStudentMarks();
+	void printStudentMarks(int a);
 
 #pragma region
 private:
@@ -48,7 +49,7 @@ private:
 	std::string surName;
 
 	// Массивы оценок
-	int marks[ MAX_MARKS ];
+	int marks[ MAX_COUNT_ITEMS ][MAX_MARKS];
 
 };
 

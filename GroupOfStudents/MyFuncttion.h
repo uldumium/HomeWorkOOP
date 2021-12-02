@@ -2,6 +2,7 @@
 #include <iostream>
 #include <ctime>
 #include <fstream>
+#include <iomanip>
 
 // ¬озращает число в веденном диапазоне
 int getRandomInteger( int min , int max );

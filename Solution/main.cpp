@@ -21,7 +21,7 @@
 
 int main()
 {
-	srand( time( NULL ) );
+	srand(time( NULL ) );
 	setlocale( 0 , "rus" );
 	Money one , two;
 	

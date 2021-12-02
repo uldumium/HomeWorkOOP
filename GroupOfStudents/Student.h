@@ -32,10 +32,10 @@ public:
 
 #pragma region internalFunctionality
 	
-	// Вывод студента
+	// Вывод в консоль студента
 	void printStudent();
 
-	// Вывод оценок студента
+	// Выводв консоль оценок студента
 	void printStudentMarks();
 
 #pragma region

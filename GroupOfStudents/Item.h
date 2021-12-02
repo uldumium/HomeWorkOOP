@@ -8,6 +8,10 @@ public:
 
 	// Конструктор по умолчанию 
 	Item();
+
+	// Конструктор с параметром
+	Item( std::string nameItem );
+
 	// Инициализация имени предмета
 	void setNameItem(std::string nameItem);
 

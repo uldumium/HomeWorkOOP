@@ -4,7 +4,7 @@
 #include "Student.h"
 
 // Размер группы
-#define MAX_SIZE_GROUP_STUDENTS 8
+#define MAX_SIZE_GROUP_STUDENTS 7
 
 // Количество предметов
 #define MAX_SIZE_VALUE_ITEM 7

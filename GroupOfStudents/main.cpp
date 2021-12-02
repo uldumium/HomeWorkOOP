@@ -13,7 +13,7 @@ int main()
     p.fillStudentList();
 
 
-    //Group::studentsGradesBySubject(p);
+    Group::studentsGradesBySubject(p);
     std::cout << std::endl;
     Group::averageScoreOfStudents( p );
 }

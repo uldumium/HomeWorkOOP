@@ -31,12 +31,14 @@ Group::Group()
 void Group::studentsGradesBySubject(Group p)
 {
 	std::cout << "|" << std::setw( 25 ) << std::left << "Имя и фамилия студента" << "|";
-
+	// Цикл для вывода названия предмета
 	for(int i = 0; i < MAX_SIZE_VALUE_ITEM; i++)
 	{
 		std::cout << std::setw( 11 ) << std::left << p.printItems( i ) << "|";
 	}
 	std::cout << std::endl;
+
+	// Цикл по выводу студента
 	for(int i = 0; i < MAX_SIZE_GROUP_STUDENTS; i++)
 	{
 		std::cout << "|" << std::setw( 10 ) << std::left << p.getSurnameStudentGroup( i ) << " ";
@@ -45,7 +47,7 @@ void Group::studentsGradesBySubject(Group p)
 		for(int j = 0; j < MAX_COUNT_ITEMS; j++)
 		{
 			std::cout << " ";
-			p.printMarksStudentsGroup( j );
+			p.printMarksStudentsGroup( i );
 			std::cout << "|";
 		}
 

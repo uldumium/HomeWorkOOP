@@ -1,14 +1,14 @@
-#include "Group.h"
+п»ї#include "Group.h"
 
 Group::Group()
 {
-	// Инициализация имени группы по умолчанию
+	// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РёРјРµРЅРё РіСЂСѓРїРїС‹ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	Group::nameGroup = "N/O";
 
-	// Инициализация названия предметов из файла
+	// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РЅР°Р·РІР°РЅРёСЏ РїСЂРµРґРјРµС‚РѕРІ РёР· С„Р°Р№Р»Р°
 	std::ifstream in;
-	std::string line; // переменная - буффер
-	in.open( "Items.txt" ); // Файл с названием предметов
+	std::string line; // РїРµСЂРµРјРµРЅРЅР°СЏ - Р±СѓС„С„РµСЂ
+	in.open( "Items.txt" ); // Р¤Р°Р№Р» СЃ РЅР°Р·РІР°РЅРёРµРј РїСЂРµРґРјРµС‚РѕРІ
 	if(in.is_open())
 	{
 		for(int i = 0; i < MAX_SIZE_VALUE_ITEM; i++)
@@ -19,7 +19,7 @@ Group::Group()
 		in.close();
 	}
 
-	// Инициализация студентов
+	// РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃС‚СѓРґРµРЅС‚РѕРІ
 	for(int i = 0; i < MAX_SIZE_GROUP_STUDENTS; i++)
 	{
 		Group::studentList[ i ].setName("N/O");
@@ -30,7 +30,7 @@ Group::Group()
 
 void Group::studentsGradesBySubject(Group p)
 {
-	std::cout << "|" << std::setw( 25 ) << std::left << "Имя и фамилия студента" << "|";
+	std::cout << "|" << std::setw( 25 ) << std::left << "РРјСЏ Рё С„Р°РјРёР»РёСЏ СЃС‚СѓРґРµРЅС‚Р°" << "|";
 
 	for(int i = 0; i < MAX_SIZE_VALUE_ITEM; i++)
 	{
@@ -57,7 +57,7 @@ void Group::averageScoreOfStudents( Group p )
 {
 	double summa = 0;
 
-	std::cout <<"Имя и фамилия студента: \n";
+	std::cout <<"РРјСЏ Рё С„Р°РјРёР»РёСЏ СЃС‚СѓРґРµРЅС‚Р°: \n";
 	for(int t = 0; t < MAX_SIZE_GROUP_STUDENTS; t++)
 	{
 		summa = 0;
@@ -69,7 +69,7 @@ void Group::averageScoreOfStudents( Group p )
 				summa += p.studentList[t].getGrade( i , j );
 			}
 		}
-		std::cout << " - средняя оценка: " << summa / ( MAX_COUNT_ITEMS * MAX_MARKS ) << std::endl;
+		std::cout << " - СЃСЂРµРґРЅСЏСЏ РѕС†РµРЅРєР°: " << summa / ( MAX_COUNT_ITEMS * MAX_MARKS ) << std::endl;
 	}
 	
 }

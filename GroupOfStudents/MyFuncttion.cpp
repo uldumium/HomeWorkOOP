@@ -1,4 +1,4 @@
-#include "MyFuncttion.h"
+п»ї#include "MyFuncttion.h"
 #include "Group.h"
 
 int getRandomInteger( int min , int max )
@@ -8,7 +8,7 @@ int getRandomInteger( int min , int max )
 
 std::string getRandomLine( std::string file )
 {
-	// рандомное число
+	// СЂР°РЅРґРѕРјРЅРѕРµ С‡РёСЃР»Рѕ
 	int bufferValue = getRandomInteger( 1 , getValueLineFile(file));
 
 	std::ifstream in;

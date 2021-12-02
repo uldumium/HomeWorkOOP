@@ -1,14 +1,14 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 #include <ctime>
 #include <fstream>
 #include <iomanip>
 
-// Возращает число в веденном диапазоне
+// Р’РѕР·СЂР°С‰Р°РµС‚ С‡РёСЃР»Рѕ РІ РІРµРґРµРЅРЅРѕРј РґРёР°РїР°Р·РѕРЅРµ
 int getRandomInteger( int min , int max );
 
-// Возращает рандомную строку из файла
+// Р’РѕР·СЂР°С‰Р°РµС‚ СЂР°РЅРґРѕРјРЅСѓСЋ СЃС‚СЂРѕРєСѓ РёР· С„Р°Р№Р»Р°
 std::string getRandomLine(std::string file);
 
-// Функция считывающая количество строк в файле
+// Р¤СѓРЅРєС†РёСЏ СЃС‡РёС‚С‹РІР°СЋС‰Р°СЏ РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚СЂРѕРє РІ С„Р°Р№Р»Рµ
 int getValueLineFile( std::string file );

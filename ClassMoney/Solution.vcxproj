@@ -24,7 +24,7 @@
     <ProjectGuid>{23bcb58c-8f12-4241-bb8f-63884c33f3e7}</ProjectGuid>
     <RootNamespace>Solution</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
-    <ProjectName>Timer</ProjectName>
+    <ProjectName>Money</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

@@ -112,6 +112,24 @@ void Group::averageGradesInSubjects( Group p )
 	}
 }
 
+void Group::groupAverageScore( Group p )
+{
+	double summa = 0;
+
+	for(int i = 0; i < MAX_SIZE_GROUP_STUDENTS; i++)
+	{
+		for(int j = 0; j < MAX_COUNT_ITEMS; j++)
+		{
+			for(int t = 0; t < MAX_MARKS; t++)
+			{
+				summa += p.studentList[ i ].getGrade( j , t );
+			}
+		}
+	}
+	std::cout << " Средний балл группы: ";
+	std::cout << summa / ( MAX_SIZE_GROUP_STUDENTS * MAX_COUNT_ITEMS * MAX_MARKS );
+}
+
 std::string Group::printItems( int a )
 {
 	return Group::itemList[ a ].getNameItem();

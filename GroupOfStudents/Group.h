@@ -26,6 +26,9 @@ public:
 	// Статический метод который печатает таблицу студентов по предметах и их оценки
 	static void averageGradesInSubjects( Group p );
 
+	// Средний балл группы
+	static void groupAverageScore( Group p );
+
 
 #pragma region SETTERS
 

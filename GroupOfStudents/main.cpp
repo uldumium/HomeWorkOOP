@@ -17,4 +17,8 @@ int main()
     Group::averageScoreOfStudents( p );
     std::cout << std::endl;
     Group::studentsGradesBySubject( p );
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    Group::groupAverageScore( p );
 }

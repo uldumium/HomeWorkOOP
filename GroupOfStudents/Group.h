@@ -29,6 +29,9 @@ public:
 	// Средний балл группы
 	static void groupAverageScore( Group p );
 
+	// Минимальные и максимальные оценки студентов с выводом ФИ и предмета
+	static void minimumAndMaximumGrades( Group p );
+
 
 #pragma region SETTERS
 

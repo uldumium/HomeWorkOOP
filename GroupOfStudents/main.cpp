@@ -21,4 +21,8 @@ int main()
     std::cout << std::endl;
     std::cout << std::endl;
     Group::groupAverageScore( p );
+    std::cout << std::endl;
+    std::cout << std::endl;
+    std::cout << std::endl;
+    Group::minimumAndMaximumGrades( p );
 }

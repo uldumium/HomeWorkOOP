@@ -130,6 +130,40 @@ void Group::groupAverageScore( Group p )
 	std::cout << summa / ( MAX_SIZE_GROUP_STUDENTS * MAX_COUNT_ITEMS * MAX_MARKS );
 }
 
+void Group::minimumAndMaximumGrades( Group p )
+{
+	std::cout << " \t\t\t\tВывод студентов c оценками по предметам: \n\n";
+	std::cout << "|" << std::setw( 25 ) << std::left << "Имя и фамилия студента" << "|";
+	// Цикл для вывода названия предмета
+	for(int i = 0; i < MAX_SIZE_VALUE_ITEM; i++)
+	{
+		std::cout << std::setw( 11 ) << std::left << p.printItems( i ) << "|";
+	}
+	std::cout << std::endl;
+	int minGrade = p.studentList[ 0 ].getGrade( 0 , 0 );
+	int maxGrade = p.studentList[ 0 ].getGrade( 0 , 0 );
+	// Цикл по выводу студента
+	for(int i = 0; i < MAX_SIZE_GROUP_STUDENTS; i++)
+	{
+		std::cout << "|" << std::setw( 10 ) << std::left << p.getSurnameStudentGroup( i ) << " ";
+		std::cout << std::setw( 14 ) << std::left << p.getNameStudentGroup( i ) << "|";
+
+		for(int j = 0; j < MAX_COUNT_ITEMS; j++)
+		{
+			std::cout << " ";
+			for(int t = 0; t < MAX_MARKS; t++)
+			{
+				if(p.studentList[ i ].getGrade( j , t ) < minGrade) minGrade = p.studentList[ i ].getGrade( j , t );
+				if(p.studentList[ i ].getGrade( j , t ) > maxGrade) maxGrade = p.studentList[ i ].getGrade( j , t );
+				//std::cout << p.studentList[ i ].getGrade( j , t ) << " ";
+			}
+			std::cout <<std::setw(5) << minGrade << std::setw( 5 ) << maxGrade << "|";
+		}
+
+		std::cout << std::endl;
+	}
+}
+
 std::string Group::printItems( int a )
 {
 	return Group::itemList[ a ].getNameItem();

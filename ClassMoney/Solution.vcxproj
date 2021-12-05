@@ -146,6 +146,7 @@
     <ClCompile Include="Euro.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Money.cpp" />
+    <ClCompile Include="myFunctions.cpp" />
     <ClCompile Include="Ruble.cpp" />
   </ItemGroup>
   <ItemGroup>

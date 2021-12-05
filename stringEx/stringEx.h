@@ -32,15 +32,24 @@ public:
 
 #pragma endregion
 
-	// Метод возращающий длину нашей строкиЕх
-	int lengthEx( const char* str ) const;
+#pragma region GETTERS
 
-	void clear();
+	char getStr( int index )const;
+
+#pragma endregion
+
+#pragma region Methods
+
+	stringEx* split( const char delimiter ) const;
+
+#pragma endregion
+
+	void deleteInfo();
 
 	int getLengthEx() const;
 
 	// Деструктор класса
-	~stringEx();
+	//~stringEx();
 
 private:
 

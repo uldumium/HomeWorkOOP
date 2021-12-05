@@ -1,4 +1,5 @@
 ﻿#include "stringEx.h"
+#include "MyFunction.h"
 
 stringEx::stringEx()
 {
@@ -11,7 +12,7 @@ stringEx::stringEx()
 
 stringEx::stringEx( const char* str )
 {
-	stringEx::length = stringEx::lengthEx( str );
+	stringEx::length = LengthEx( str );
 
 	stringEx::str = new char[ stringEx::length + 1 ];
 
@@ -30,7 +31,7 @@ stringEx::stringEx( const stringEx& str ) //**
 
 stringEx& stringEx::operator=( const stringEx& str ) //**
 {
-	stringEx::clear();
+	stringEx::deleteInfo();
 
 	stringEx::length = str.length;
 
@@ -51,19 +52,40 @@ char& stringEx::operator[]( const int& index ) const
 	return stringEx::str[ index ];
 }
 
-int stringEx::lengthEx( const char* str ) const
+char stringEx::getStr( int index ) const
 {
-    int length = 0;
-
-	for(int i = 0; '\0' != str[i]; i++)
-	{
-		length++;
-	}
-
-	return length;
+	return stringEx::str[ index ];
 }
 
-void stringEx::clear()
+stringEx* stringEx::split( const char delimiter ) const //*
+{
+	// Счетчик слов в нашей строкеEx
+	int counterDelimiter = 1;
+	for(int i = 0; i < stringEx::length; i++)
+	{
+		if(delimiter == stringEx::str[ i ])
+			++counterDelimiter;
+	}
+	stringEx* subArray = new stringEx[ counterDelimiter ];
+
+	for(int i = 0, j = 0, k = 0; i < stringEx::length; i++)
+	{
+		if(delimiter != stringEx::str[ i ])
+		{
+			subArray[ j ].str[ k++ ] = stringEx::str[ i ];
+		}
+		else
+		{
+			subArray[ j++ ].str[ k ] = '\0';
+			subArray->length = k;
+			k = 0;
+		}
+	}
+
+	return subArray;
+}
+
+void stringEx::deleteInfo()
 {
 	if(nullptr != stringEx::str)
 	{
@@ -90,7 +112,7 @@ std::ostream& operator<<( std::ostream& outputStream , const stringEx& str )
 	return outputStream;
 }
 
-stringEx::~stringEx()
-{
-	stringEx::clear();
-}
+//stringEx::~stringEx()
+//{
+//	stringEx::deleteInfo();
+//}

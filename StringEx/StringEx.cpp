@@ -200,16 +200,15 @@ StringEx& StringEx::operator=( const StringEx& other )
 
 std::ostream& operator<<( std::ostream& outPut , const StringEx& other )
 {
+	// Узнаем длинну массива other
+	int length = getMyLength(other.str);
 
-		// Узнаем длинну массива other
-		int length = getMyLength(other.str);
+	// Цикл, в котором, в объект outPut закидываем элементы массива other
+	for (int i = 0; i < length; i++)
+	{
+		outPut << other.str[i];
+	}
 
-		// Цикл, в котором, в объект outPut закидываем элементы массива other
-		for (int i = 0; i < length; i++)
-		{
-			outPut << other.str[i];
-		}
-
-		// Возращаем объект
-		return outPut;
+	// Возращаем объект
+	return outPut;
 }

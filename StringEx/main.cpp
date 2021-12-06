@@ -62,7 +62,6 @@ int main()
 	op.insert("RARRAR", 10);
 	std::cout << op << std::endl;
 	//-------------------------------------------------
-
-
+	
 	return 0;
 }

@@ -44,7 +44,7 @@ void StringEx::clearObj()
 	}
 }
 
-StringEx* StringEx::split( const char delimiter )
+StringEx* StringEx::split( const char delimiter , int& count )
 {
 	// Создаем счетчики для метода
 	int counterSubstring = 1; // Счетчик слов
@@ -93,6 +93,8 @@ StringEx* StringEx::split( const char delimiter )
 			bufferCounter = 0; // Обнуляем счетчик длины подстроки
 		}
 	}
+
+	count = counterSubstring;
 
 	// Возращаем массив объектов класса StringEx
 	return bufferArray;

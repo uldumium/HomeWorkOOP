@@ -9,7 +9,7 @@
 //-------------------------------------------------------------------------------------------------------------------------
 //В классе должны быть :
 // 
-//-конструктор по умолчанию - READY
+//- конструктор по умолчанию - READY
 // 
 //- конструктор с параметром в который мы помещаем массив чаров - READY
 // 
@@ -32,36 +32,52 @@
 int main()
 {
 	setlocale( 0 , "rus" );
+
 	//-------------------------------------------------
 	std::cout << "Конструктор по умолчанию:\n";
 	StringEx str1;
 	std::cout << str1 << std::endl;
+
+
 	//-------------------------------------------------
 	std::cout << "\nКонструктор c параметром:\n";
 	StringEx str2{"Hello"};
 	std::cout << str2 << std::endl;
+
+
 	//-------------------------------------------------
 	std::cout << "\nКонструктор копирования:\n";
 	StringEx str3(str2); 
 	std::cout << str3 << std::endl;
+
+
 	//-------------------------------------------------
 	std::cout << "\nКонкатинация:\n";
 	std::cout << str2 << std::endl;
 	std::cout << str3 << std::endl;
 	StringEx str4 = str2 + str3;
 	std::cout << str4 << std::endl;
+
+
     //-------------------------------------------------
 	StringEx op{"Hello my world"};
 	std::cout << "\nМетод сплит:\n";
 	std::cout << op << std::endl;
-	StringEx* more = op.split( ' ' );
+
+	int s = 0;
+
+	StringEx* more = op.split( ' ', s );
 	std::cout << more[0] << std::endl;
 	std::cout << more[1] << std::endl;
 	std::cout << more[2] << std::endl;
 	std::cout << std::endl;
+
+
 	//-------------------------------------------------
 	op.insert("RARRAR", 10);
 	std::cout << op << std::endl;
+
+	for(StringEx ser: more)
 	//-------------------------------------------------
 	std::cout << op.contains("el");
 	return 0;

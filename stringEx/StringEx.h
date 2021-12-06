@@ -46,6 +46,9 @@ public:
 	// Метод вставляющий подстроку в строку в заданному элементу
 	void insert(const char* subArray, const int index);
 
+	// Метод возращает true если подстрока входит в строку, иначе false
+	bool contains(const char* other) const;
+
 #pragma endregion
 
 private:

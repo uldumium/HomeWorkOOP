@@ -51,17 +51,18 @@ int main()
 	StringEx str4 = str2 + str3;
 	std::cout << str4 << std::endl;
     //-------------------------------------------------
-	StringEx op{"Hello my world 456"};
+	StringEx op{"Hello my world"};
 	std::cout << "\nМетод сплит:\n";
 	std::cout << op << std::endl;
 	StringEx* more = op.split( ' ' );
 	std::cout << more[0] << std::endl;
 	std::cout << more[1] << std::endl;
 	std::cout << more[2] << std::endl;
+	std::cout << std::endl;
 	//-------------------------------------------------
 	op.insert("RARRAR", 10);
 	std::cout << op << std::endl;
 	//-------------------------------------------------
-	std::cout << op.contains("456");
+	std::cout << op.contains("el");
 	return 0;
 }

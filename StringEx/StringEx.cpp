@@ -67,7 +67,7 @@ StringEx* StringEx::split( const char delimiter )
 	int thisLength = getMyLength( StringEx::str );
 
 	// Главный цикл, который идет до конца строки объекта, который мы хотим разбить на подмассивы
-	for(int i = 0; i < thisLength; i++)
+	for(int i = 0; i < thisLength+1; i++)
 	{
 		if(delimiter != str[ i ] && '\0' != str[i]) // Условие по которому считаем длину подмассива
 		{

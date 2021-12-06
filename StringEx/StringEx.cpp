@@ -136,6 +136,33 @@ void StringEx::insert(const char* subArray, const int index)
 	*this = bufferStringEx;
 }
 
+bool StringEx::contains(const char* other) const
+{
+	int thisLength = getMyLength(StringEx::str);
+	int otherLength = getMyLength(other);
+
+	int hitCounter = 0;
+
+	for (int i = 0,k=0; i < thisLength; i++,k++)
+	{
+		if (StringEx::str[i] == other[k])
+		{
+			for (int j = 0, p = i; j < otherLength; j++, p++)
+			{
+				if (StringEx::str[p] == other[j])
+				{
+					hitCounter++;
+				}
+
+				if (otherLength == hitCounter)
+					return true;
+			}
+		}
+	}
+
+	return false;
+}
+
 StringEx::~StringEx()
 {
 	// Очистка динамической памяти при конце жизни объекта

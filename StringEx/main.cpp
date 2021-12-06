@@ -62,6 +62,6 @@ int main()
 	op.insert("RARRAR", 10);
 	std::cout << op << std::endl;
 	//-------------------------------------------------
-	
+	std::cout << op.contains("456");
 	return 0;
 }

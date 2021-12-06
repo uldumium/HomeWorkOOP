@@ -18,7 +18,7 @@ public:
 	StringEx( const StringEx& other );
 
 	//Деструктор для удаления диначеских данных
-	~StringEx();
+	virtual ~StringEx();
 
 #pragma endregion
 
@@ -30,10 +30,7 @@ public:
 	// Перегрузка оператора "равно"
 	StringEx& operator=( const StringEx& other );
 
-	// Перегрузка оператора "!="
-	bool operator!=( const char other );
-
-	// Перегрузка оператора "<<"
+	// Перегрузка оператора "<< "
 	friend std::ostream& operator<<( std::ostream& outPut , const StringEx& other );
 
 #pragma endregion
@@ -46,7 +43,8 @@ public:
 	// Метод возращат массив объектов по разделителю
 	StringEx* split( const char delimiter);
 
-	char* getStr() const;
+	// Метод вставляющий подстроку в строку в заданному элементу
+	void insert(const char* subArray, const int index);
 
 #pragma endregion
 

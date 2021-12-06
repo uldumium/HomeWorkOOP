@@ -21,9 +21,9 @@
 // 
 //- метод split - разделяет строку на подстроки по символу разделителю( "29/11/2021 года" -> {"29" , "11" , "2021 года"} ) - READY
 // 
-//- метод insert - вставляет заданный текст на позицию( "first".->Insert( "second" , 3 ) ==> "firsecondst" ) - In the process
+//- метод insert - вставляет заданный текст на позицию( "first".->Insert( "second" , 3 ) ==> "firsecondst" ) - READY
 // 
-//- метод contains - ищет вхождение подстроки в строке , например "tai" в "contains"
+//- метод contains - ищет вхождение подстроки в строке , например "tai" в "contains" - In the process
 // 
 //-------------------------------------------------------------------------------------------------------------------------
 
@@ -32,35 +32,37 @@
 int main()
 {
 	setlocale( 0 , "rus" );
-
+	//-------------------------------------------------
 	std::cout << "Конструктор по умолчанию:\n";
 	StringEx str1;
 	std::cout << str1 << std::endl;
-
+	//-------------------------------------------------
 	std::cout << "\nКонструктор c параметром:\n";
 	StringEx str2{"Hello"};
 	std::cout << str2 << std::endl;
-
+	//-------------------------------------------------
 	std::cout << "\nКонструктор копирования:\n";
 	StringEx str3(str2); 
 	std::cout << str3 << std::endl;
-
+	//-------------------------------------------------
 	std::cout << "\nКонкатинация:\n";
 	std::cout << str2 << std::endl;
 	std::cout << str3 << std::endl;
 	StringEx str4 = str2 + str3;
 	std::cout << str4 << std::endl;
-
-
-	StringEx op{"Hello my world"};
+    //-------------------------------------------------
+	StringEx op{"Hello my world 456"};
 	std::cout << "\nМетод сплит:\n";
 	std::cout << op << std::endl;
 	StringEx* more = op.split( ' ' );
-	for(int i = 0; more[i] != '\0'; i++)
-	{
-		int counter = 1;
-		std::cout << counter << " stroke: " << more[ i ] << std::endl;
-	}
+	std::cout << more[0] << std::endl;
+	std::cout << more[1] << std::endl;
+	std::cout << more[2] << std::endl;
+	//-------------------------------------------------
+	op.insert("RARRAR", 10);
+	std::cout << op << std::endl;
+	//-------------------------------------------------
+
 
 	return 0;
 }

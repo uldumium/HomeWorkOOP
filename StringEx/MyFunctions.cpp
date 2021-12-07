@@ -1,4 +1,4 @@
-#include "MyFunctions.h"
+﻿#include "MyFunctions.h"
 
 int getMyLength( const char* other )
 {

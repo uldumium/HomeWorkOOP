@@ -50,6 +50,12 @@ public:
 	// Метод возращает true если подстрока входит в строку, иначе false
 	bool contains( const char* other ) const;
 
+	// Возращает длину строки
+	int size() const;
+
+	// Возращает true если объект не пуст, иначе false
+	bool isEmpty() const;
+
 #pragma endregion
 
 private:

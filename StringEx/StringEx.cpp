@@ -169,6 +169,28 @@ bool StringEx::contains( const char* other ) const
 	return false;
 }
 
+int StringEx::size() const
+{
+	int length = 0;
+
+	if(nullptr != StringEx::str)
+	{
+		for(int i = 0; StringEx::str[ i ] != '\0'; i++)
+		{
+			length++;
+		}
+	}
+
+	return length;
+}
+
+bool StringEx::isEmpty() const
+{
+	if(nullptr == StringEx::str)
+		return false;
+	else return true;
+}
+
 StringEx::~StringEx()
 {
 	// Очистка динамической памяти при конце жизни объекта

@@ -44,6 +44,7 @@ public:
 	StringEx* split( const char delimiter , int& count );
 
 	// Метод вставляющий подстроку в строку в заданному элементу
+	// так же нужно указать интовое значения счетчика, котрый  вернет кол-во подмассивов в массиве
 	void insert(const char* subArray, const int index);
 
 	// Метод возращает true если подстрока входит в строку, иначе false

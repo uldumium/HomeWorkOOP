@@ -41,7 +41,7 @@ public:
 	void clearObj();
 
 	// Метод возращат массив объектов по разделителю
-	StringEx* split( const char delimiter);
+	StringEx* split( const char delimiter , int& count );
 
 	// Метод вставляющий подстроку в строку в заданному элементу
 	void insert(const char* subArray, const int index);

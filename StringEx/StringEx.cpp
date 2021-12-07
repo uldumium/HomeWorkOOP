@@ -140,25 +140,29 @@ void StringEx::insert(const char* subArray, const int index)
 
 bool StringEx::contains(const char* other) const
 {
+	// Узнаем длину строки в которой ищем и длину подстроки
 	int thisLength = getMyLength(StringEx::str);
 	int otherLength = getMyLength(other);
 
-	int hitCounter = 0;
+	// Создаем флаг, с помощью которого будет искать совпаденя
+	bool flag = false;
 
-	for (int i = 0,k=0; i < thisLength; i++,k++)
+	// Основной цикл, который идет до конца строки, в которой мы ищем подстроку
+	for (int i = 0; i < thisLength; i++)
 	{
-		if (StringEx::str[i] == other[k])
+		// Если есть совпадение , запускаем цикл, который идет до конца длины подстроки
+		// если подстрока полностью совпадет со строкой, в которой ищем, цикл вернет flag - true
+		if (StringEx::str[i] == other[0])
 		{
-			for (int j = 0, p = i; j < otherLength; j++, p++)
+			for (int j = 0, k = i; j < otherLength; j++, k++)
 			{
-				if (StringEx::str[p] == other[j])
-				{
-					hitCounter++;
-				}
-
-				if (otherLength == hitCounter)
-					return true;
+				if(StringEx::str[ k ] == other[ j ])
+					flag = true;
+				else flag = false;
 			}
+			// Если флаг true, но мы нашли вхождение
+			if(true == flag)
+				return true;
 		}
 	}
 

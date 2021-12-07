@@ -18,6 +18,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="MyFunctions.h" />
+    <ClInclude Include="StringEx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyFunctions.cpp" />
+    <ClCompile Include="StringEx.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,15 +147,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\Desktop\StringEx\main.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\StringEx\MyFunctions.cpp" />
-    <ClCompile Include="..\..\..\..\..\Desktop\StringEx\StringEx.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\Desktop\StringEx\MyFunctions.h" />
-    <ClInclude Include="..\..\..\..\..\Desktop\StringEx\StringEx.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

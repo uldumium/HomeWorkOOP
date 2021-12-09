@@ -187,8 +187,8 @@ int StringEx::size() const
 bool StringEx::isEmpty() const
 {
 	if(nullptr == StringEx::str)
-		return false;
-	else return true;
+		return true;
+	else return false;
 }
 
 StringEx::~StringEx()
@@ -232,7 +232,10 @@ StringEx StringEx::operator+( const StringEx& right )
 StringEx& StringEx::operator=( const StringEx& other )
 {
 	// Чистим объект
-	StringEx::clearObj();
+	if(StringEx::isEmpty())
+	{
+		StringEx::clearObj();
+	}
 
 	// Узнаем длинну массива other
 	int length = getMyLength( other.str );
@@ -253,6 +256,18 @@ StringEx& StringEx::operator=( const StringEx& other )
 	return *this;
 }
 
+char StringEx::operator[]( const int index )
+{
+	return StringEx::str[ index ];
+}
+
+void StringEx::comparison( const StringEx left , const StringEx right )
+{
+	if(left == right)
+		std::cout << "True\n";
+	else std::cout << "False\n";
+}
+
 std::ostream& operator<<( std::ostream& outPut , const StringEx& other )
 {
 	// Узнаем длинну массива other
@@ -266,4 +281,39 @@ std::ostream& operator<<( std::ostream& outPut , const StringEx& other )
 
 	// Возращаем объект
 	return outPut;
+}
+
+bool operator==( const StringEx left , const StringEx right )
+{
+	// Узнаем длины двух объектов
+	int leftLength = left.size();
+	int rightLength = right.size();
+
+	// Флаг
+	bool flag = false;
+
+	// Если длины равны, то сравниваем по символьно 
+	if(leftLength == rightLength)
+	{
+		flag = true;
+		for(int i = 0; i < leftLength; i++)
+		{
+			// Если они сиволы равны, то флаг вернет истину, иначе ложь
+			if(left.str[ i ] == right.str[ i ])
+				flag = true;
+			else
+			{
+				flag = false;
+				break;
+			}
+		}
+		if(flag == false)
+			return false;
+		else return true;
+	}
+	else
+	{
+		// Если длины разные, то сразу вернет ложь
+		return false;
+	}
 }

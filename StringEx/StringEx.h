@@ -33,6 +33,13 @@ public:
 	// Перегрузка оператора "<< "
 	friend std::ostream& operator<<( std::ostream& outPut , const StringEx& other );
 
+	// Перегрезука оператора "[]"
+	char operator[]( const int index );
+
+	// Перегрузка оператора "=="
+	friend bool operator==( const StringEx left, const StringEx right );
+	static void comparison( const StringEx left , const StringEx right );
+
 #pragma endregion
 
 #pragma region Methods

@@ -18,9 +18,9 @@
 // 
 //	- добавить конструктор копирования и перегрузку оператора присваивания - READY (Конструктор копирования был реализован еще в 4 задании)
 // 
-//	- добавить перегрузку оператора индексации - Performed
+//	- добавить перегрузку оператора индексации - READY
 // 
-//	- добавить перегрузку операторов сравнения - Performed
+//	- добавить перегрузку операторов сравнения - READY
 //-----------------------------------------------------------------------------------------------------------------------------------------
 
 // Весь вывод сделал в мейне.
@@ -44,6 +44,28 @@ int main()
 	std::cout << newString.isEmpty() << std::endl;
 
 	//-------------------------------------------------
+	StringEx indexString{ "Hello my first stroke" };
+	std::cout << RED_TEXT << "Перегрузка оператора []:\n" << DEFAULT_TEXT;
+	std::cout << indexString << std::endl;
+	for(int i = 0; i < indexString.size(); i++)
+	{
+		std::cout << indexString[ i ] << " ";
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	//-------------------------------------------------
+	StringEx str{ "MARTY HELLO" };
+	StringEx str2{ "MARTY HELLO" };
+	StringEx str3{ "MARTY HeLLO" };
+	std::cout << RED_TEXT << "Перегрузка оператора ==:\n" << DEFAULT_TEXT;
+	std::cout << "1: " << str << std::endl;
+	std::cout << "2: " << str2 << std::endl;
+	std::cout << "3: " << str3 << std::endl;
+	std::cout << " Сравнение первой и второй строки:\n";
+	StringEx::comparison( str , str2 ); 
+	std::cout << " Сравнение второй и третей строки:\n";
+	StringEx::comparison( str2 , str3 );
 
 	return 0;
 }

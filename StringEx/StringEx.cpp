@@ -261,11 +261,32 @@ char StringEx::operator[]( const int index )
 	return StringEx::str[ index ];
 }
 
-void StringEx::comparison( const StringEx left , const StringEx right )
+void StringEx::comparison( const StringEx& left , const StringEx& right )
 {
 	if(left == right)
 		std::cout << "True\n";
 	else std::cout << "False\n";
+}
+
+StringEx StringEx::operator+=( const StringEx& right )
+{
+	StringEx bufferString = *this + right;
+	return bufferString;
+}
+
+void StringEx::operator-( const StringEx& right )
+{
+	std::cout<<StringEx::contains( right.str );
+}
+
+void StringEx::operator/( const char delimiter )
+{
+	int counter = 0;
+	StringEx* buffer = StringEx::split( delimiter , counter );
+	for(int i = 0; i < counter; i++)
+	{
+		std::cout << buffer[ i ] << std::endl;
+	}
 }
 
 std::ostream& operator<<( std::ostream& outPut , const StringEx& other )
@@ -283,7 +304,7 @@ std::ostream& operator<<( std::ostream& outPut , const StringEx& other )
 	return outPut;
 }
 
-bool operator==( const StringEx left , const StringEx right )
+bool operator==( const StringEx& left , const StringEx& right )
 {
 	// Узнаем длины двух объектов
 	int leftLength = left.size();

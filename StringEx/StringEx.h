@@ -37,8 +37,17 @@ public:
 	char operator[]( const int index );
 
 	// Перегрузка оператора "=="
-	friend bool operator==( const StringEx left, const StringEx right );
-	static void comparison( const StringEx left , const StringEx right );
+	friend bool operator==( const StringEx& left, const StringEx& right );
+	static void comparison( const StringEx& left , const StringEx& right );
+
+	// Перегрузка оператора "+=", копирует объект в самого себя
+	StringEx operator+=( const StringEx& right );
+
+	// Перегрузка метода contains оператором "-"
+	void operator-( const StringEx& right );
+
+	// Перегрузка оператора "/", который разделит строку на подстроки (раздлителем) и сразу их выведет в консоль
+	void operator/( const char delimiter);
 
 #pragma endregion
 

@@ -4,68 +4,56 @@
 
 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//Дополнить класс String новыми методами и перегрузками операций.
+// 
+//	Дополнить класс String перегрузками операций.
+// 
 //-----------------------------------------------------------------------------------------------------------------------------------------
-//	- дополнить класс методами isEmpty - READY
 // 
-//	- дополнить класс методами size - READY (.clearObj)
+//	- Придумать и реализовать перегрузки операций для методов concat, split, contains.
 // 
-//	- дополнить класс методами clear - READY
-// 
-//	- добавить по необходимости иные методы , упрощающие работу с классом
-//
-//	- добавить перегрузку оператора вывода в консоль - READY
-// 
-//	- добавить конструктор копирования и перегрузку оператора присваивания - READY (Конструктор копирования был реализован еще в 4 задании)
-// 
-//	- добавить перегрузку оператора индексации - READY
-// 
-//	- добавить перегрузку операторов сравнения - READY
 //-----------------------------------------------------------------------------------------------------------------------------------------
-
-// Весь вывод сделал в мейне.
-// У метода .clear было изменено название на .clearObj
+// 
+// 1 - Конкатинация перегружена оператором += - READY
+// 
+// 2 - contains перегружен оператором -       - READY
+// 
+// 3 - split перегружен рператором, который сразу выводит массив подстрок в консоль
+// 
+//-----------------------------------------------------------------------------------------------------------------------------------------
 
 int main()
 {
 	setlocale( 0 , "rus" );
+	//-----------------------------------
+	std::cout << RED_TEXT << "Конкатинация перегружена оператором +=\n" << DEFAULT_TEXT;
+	StringEx newString{ "Hello" };
+	StringEx newString2{ "_World" };
+	StringEx newString3;
+	std::cout << "1 Stroke: " << newString << std::endl;
+	std::cout << "2 Stroke: " << newString2 << std::endl;
+	newString3 = newString += newString2;
+	std::cout << newString3 << std::endl << std::endl;
 
-	//-------------------------------------------------
-	StringEx newStringEx{ "Hello my first stroke" };
-	std::cout << RED_TEXT << "Метод SIZE:\n" << DEFAULT_TEXT;
-	std::cout << newStringEx << std::endl;
-	std::cout << newStringEx.size() << std::endl;
-
-	//-------------------------------------------------
-	StringEx newString;
-	StringEx newStrEx{ "Hello my first stroke" };
-	std::cout << RED_TEXT << "Метод isEmpty:\n" << DEFAULT_TEXT;
-	std::cout << newStrEx.isEmpty() << std::endl;
-	std::cout << newString.isEmpty() << std::endl;
-
-	//-------------------------------------------------
-	StringEx indexString{ "Hello my first stroke" };
-	std::cout << RED_TEXT << "Перегрузка оператора []:\n" << DEFAULT_TEXT;
-	std::cout << indexString << std::endl;
-	for(int i = 0; i < indexString.size(); i++)
-	{
-		std::cout << indexString[ i ] << " ";
-	}
+	//-----------------------------------
+	std::cout << RED_TEXT << "contains перегружен оператором - \n" << DEFAULT_TEXT;
+	StringEx newString4{ "Hello" };
+	StringEx newString5{ "Hel" };
+	StringEx newString6{ "Hola" };
+	std::cout << "4 Stroke: " << newString4 << std::endl;
+	std::cout << "5 Stroke: " << newString5 << std::endl;
+	std::cout << "6 Stroke: " << newString6 << std::endl;
+	std::cout << " Входит ли в 4 строку, строка 5?\n";
+	newString4 - newString5;
 	std::cout << std::endl;
-	std::cout << std::endl;
+	std::cout << " Входит ли в 4 строку, строка 6?\n";
+	newString4 - newString6;
+	std::cout << std::endl << std::endl;
 
-	//-------------------------------------------------
-	StringEx str{ "MARTY HELLO" };
-	StringEx str2{ "MARTY HELLO" };
-	StringEx str3{ "MARTY HeLLO" };
-	std::cout << RED_TEXT << "Перегрузка оператора ==:\n" << DEFAULT_TEXT;
-	std::cout << "1: " << str << std::endl;
-	std::cout << "2: " << str2 << std::endl;
-	std::cout << "3: " << str3 << std::endl;
-	std::cout << " Сравнение первой и второй строки:\n";
-	StringEx::comparison( str , str2 ); 
-	std::cout << " Сравнение второй и третей строки:\n";
-	StringEx::comparison( str2 , str3 );
+	//-----------------------------------
+	std::cout << RED_TEXT << "split перегружен оператором / \n" << DEFAULT_TEXT;
+	StringEx newString7{ "Hello my little world!" };
+	std::cout << newString7 << std::endl;
+	newString7 / ' ';
 
 	return 0;
 }

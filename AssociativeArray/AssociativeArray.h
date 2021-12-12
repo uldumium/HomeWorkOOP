@@ -1,4 +1,4 @@
-#pragma once
+п»ї#pragma once
 #include <iostream>
 
 #define RED_TEXT "\033[1;31m"
@@ -12,68 +12,68 @@ class AssociativeArray
 public:
 #pragma region CONSTRUCTORS
 
-	// Конструктор по умолчанию
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РїРѕ СѓРјРѕР»С‡Р°РЅРёСЋ
 	AssociativeArray();
 
-	// Конструктор копирования
+	// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєРѕРїРёСЂРѕРІР°РЅРёСЏ
 	AssociativeArray(const AssociativeArray &right);
 
 #pragma endregion
 
 #pragma region RELOAD OPERATORS
 
-	// Перегрузка оператора индексации
+	// РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РёРЅРґРµРєСЃР°С†РёРё
 	void operator[]( TKey key );
 
-	// Перегрузка оператора присваивания
+	// РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РїСЂРёСЃРІР°РёРІР°РЅРёСЏ
 	AssociativeArray& operator= (const AssociativeArray &right);
 
-	// Перегрузка оператора сравнения
+	// РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ
 	void operator==( AssociativeArray& right );
 
 #pragma endregion
 
 #pragma region GETTERS
 
-	// Получение ключа по индексу
+	// РџРѕР»СѓС‡РµРЅРёРµ РєР»СЋС‡Р° РїРѕ РёРЅРґРµРєСЃСѓ
 	TKey getKey( int index );
 
-	// Получение значения по индексу
+	// РџРѕР»СѓС‡РµРЅРёРµ Р·РЅР°С‡РµРЅРёСЏ РїРѕ РёРЅРґРµРєСЃСѓ
 	DValue getValue( int index );
 
-	// Получение кол-ва элементов в списке
+	// РџРѕР»СѓС‡РµРЅРёРµ РєРѕР»-РІР° СЌР»РµРјРµРЅС‚РѕРІ РІ СЃРїРёСЃРєРµ
 	size_t getSize();
 
 #pragma endregion
 
 #pragma region METHODS
 
-	// Вставить новый элемент в список
+	// Р’СЃС‚Р°РІРёС‚СЊ РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РІ СЃРїРёСЃРѕРє
 	void put( TKey key , DValue value );
 
-	// Задать новое значение по ключу в списке
+	// Р—Р°РґР°С‚СЊ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РїРѕ РєР»СЋС‡Сѓ РІ СЃРїРёСЃРєРµ
 	void newValue( TKey key , DValue value );
 
-	// Поиск значения по ключу
+	// РџРѕРёСЃРє Р·РЅР°С‡РµРЅРёСЏ РїРѕ РєР»СЋС‡Сѓ
 	void searchValue( TKey key );
 
-	// Поиск ключа в списке
+	// РџРѕРёСЃРє РєР»СЋС‡Р° РІ СЃРїРёСЃРєРµ
 	void searchKey( TKey key );
 
 #pragma endregion
 
 private:
 
-	// Статический массив ключей
+	// РЎС‚Р°С‚РёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ РєР»СЋС‡РµР№
 	TKey key[ SIZE ];
 
-	// Статический массив значений
+	// РЎС‚Р°С‚РёС‡РµСЃРєРёР№ РјР°СЃСЃРёРІ Р·РЅР°С‡РµРЅРёР№
 	DValue value[ SIZE ];
 
-	// Кол-во элементов в списке
+	// РљРѕР»-РІРѕ СЌР»РµРјРµРЅС‚РѕРІ РІ СЃРїРёСЃРєРµ
 	size_t size;
 
-	// Размер списка
+	// Р Р°Р·РјРµСЂ СЃРїРёСЃРєР°
 	int capasity = SIZE;
 };
 
@@ -107,11 +107,11 @@ void AssociativeArray<TKey , DValue , SIZE>::operator[]( TKey key )
 
 		if(0 <= buffer)
 			std::cout << AssociativeArray::key[ buffer ] << " " << AssociativeArray::value[ buffer ] << std::endl;
-		else std::cout << "В списке нет веденного ключа\n";
+		else std::cout << "Р’ СЃРїРёСЃРєРµ РЅРµС‚ РІРµРґРµРЅРЅРѕРіРѕ РєР»СЋС‡Р°\n";
 	}
 	else
 	{
-		std::cout << "Список пуст\n";
+		std::cout << "РЎРїРёСЃРѕРє РїСѓСЃС‚\n";
 	}
 }
 
@@ -147,12 +147,12 @@ void AssociativeArray<TKey , DValue , SIZE>::operator==( AssociativeArray& right
 				flagValue = true;
 		}
 		if(flagKey && flagValue == true)
-			std::cout << GREEN_TEXT << "Списки равны\n" << DEFAULT_TEXT;
-		else std::cout << RED_TEXT << "Списки не равны!\n" << DEFAULT_TEXT;
+			std::cout << GREEN_TEXT << "РЎРїРёСЃРєРё СЂР°РІРЅС‹\n" << DEFAULT_TEXT;
+		else std::cout << RED_TEXT << "РЎРїРёСЃРєРё РЅРµ СЂР°РІРЅС‹!\n" << DEFAULT_TEXT;
 	}
 	else
 	{
-		std::cout << RED_TEXT << "Списки не равны!\n" << DEFAULT_TEXT;
+		std::cout << RED_TEXT << "РЎРїРёСЃРєРё РЅРµ СЂР°РІРЅС‹!\n" << DEFAULT_TEXT;
 	}
 }
 
@@ -161,7 +161,7 @@ void AssociativeArray<TKey , DValue , SIZE>::put( TKey key , DValue value )
 {
 	if(AssociativeArray::size == AssociativeArray::capasity)
 	{
-		std::cout << "Нет места" << std::endl;
+		std::cout << "РќРµС‚ РјРµСЃС‚Р°" << std::endl;
 	}
 	else
 	{
@@ -208,9 +208,9 @@ void AssociativeArray<TKey , DValue , SIZE>::newValue( TKey key , DValue value )
 		}
 	}
 	if(flag == true)
-		std::cout << counter << " key были изменены\n";
+		std::cout << counter << " key Р±С‹Р»Рё РёР·РјРµРЅРµРЅС‹\n";
 	else
-		std::cout << key << " - ключа не был найден\n";
+		std::cout << key << " - РєР»СЋС‡Р° РЅРµ Р±С‹Р» РЅР°Р№РґРµРЅ\n";
 }
 
 template<typename TKey , typename DValue , size_t SIZE>
@@ -225,7 +225,7 @@ void AssociativeArray<TKey , DValue , SIZE>::searchValue( TKey key )
 	}
 	if(0 != counter)
 	{
-		std::cout << "Найдено " << counter << " value по ключу " << key << std::endl;
+		std::cout << "РќР°Р№РґРµРЅРѕ " << counter << " value РїРѕ РєР»СЋС‡Сѓ " << key << std::endl;
 
 		for(int i = 0; i < AssociativeArray::size; i++)
 		{
@@ -237,7 +237,7 @@ void AssociativeArray<TKey , DValue , SIZE>::searchValue( TKey key )
 	}
 	else
 	{
-		std::cout << "Найдено " << counter << " value по ключу " << key << std::endl;
+		std::cout << "РќР°Р№РґРµРЅРѕ " << counter << " value РїРѕ РєР»СЋС‡Сѓ " << key << std::endl;
 	}
 }
 
@@ -254,6 +254,6 @@ void AssociativeArray<TKey , DValue , SIZE>::searchKey( TKey key )
 		}
 	}
 	if(flag == true)
-		std::cout << key << " - ключ найден\n";
-	else std::cout << key << " - ключ не найден\n";
+		std::cout << key << " - РєР»СЋС‡ РЅР°Р№РґРµРЅ\n";
+	else std::cout << key << " - РєР»СЋС‡ РЅРµ РЅР°Р№РґРµРЅ\n";
 }
